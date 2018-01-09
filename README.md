@@ -1,2 +1,3 @@
-# dataStructures
-Where I maintain my implementations of common data structures
+# dataStructures.py
+---
+Implementations of data structures
