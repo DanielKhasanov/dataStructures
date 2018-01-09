@@ -50,7 +50,7 @@ class MedianHeap:
         return len(self.maxHeap)
 
     def __str__(self):
-        print("Lower: ", self.peekMaxHeap(), " Upper: ", self.peekMinHeap(), " Median: ", self.getMedian(), )
+        print("Lower: ", self.peekMaxHeap(), " | Upper: ", self.peekMinHeap(), " | Even: ", len(self) % 2 == 0, " | Median: ", self.getMedian(), )
         revList = self.maxHeap[::-1]
         return "".join([" ".join(map(str, map(lambda d: -d, revList))),
                         " | ",
@@ -88,6 +88,8 @@ class MedianHeap:
         else:
             return self.peekMaxHeap()
 
+    def __len__(self):
+        return len(self.maxHeap) + len(self.minHeap)
 
 
 medHeap = MedianHeap()

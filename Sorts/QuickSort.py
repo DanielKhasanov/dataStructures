@@ -20,14 +20,13 @@ def quickSort(arr):
             # Escape clause
             if startingIndex > endingIndex:
                 done = True
-            # Swap
+            # Swap left and right
             else:
                 print("Swapping ", arr[startingIndex], " ", arr[endingIndex])
                 arr[startingIndex], arr[endingIndex] = arr[endingIndex], arr[startingIndex]
 
         # Swap pivot with new midpoint to finish
         arr[left], arr[endingIndex] = arr[endingIndex], arr[left]
-
         return endingIndex
 
 
@@ -51,3 +50,5 @@ print(testArr)
 quickSort(testArr)
 
 print(testArr)
+
+## Extra Challenge: Median of Three Implementation

@@ -4,11 +4,14 @@ class TrieNode:
         self.children = {}
         
     def addWord(self, word, index=0):
+        # Ending confirmation (equivalent of signifying a word or subword)
         if index == len(word):
             self.word = word
+        # Traverse down letters
         elif word[index] in self.children:
             childNode = self.children[word[index]]
             childNode.addWord(word, index + 1)
+        # Add new letter as children
         else:
             newNode = TrieNode()
             self.children[word[index]] = newNode
@@ -34,19 +37,23 @@ class TrieNode:
         
     def getAllWords(self):
         words = []
+        # Word is confirmed
         if self.word is not None:
             words.append(self.word)
-            
+        # Add more confirmed words in children and add to list
         for childNode in self.children.values():
             words.extend(childNode.getAllWords())
         return words
         
     def allWords(self, prefix, index=0):
         prefixNode = self.getNode(prefix,index=index)
+        # Does not exist
         if prefixNode is None:
             return []
+        # Find all related words starting at prefix
         else:
             return prefixNode.getAllWords()
+
         
 
 trieRoot = TrieNode()
