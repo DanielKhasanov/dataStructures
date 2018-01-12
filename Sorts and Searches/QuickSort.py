@@ -51,4 +51,5 @@ quickSort(testArr)
 
 print(testArr)
 
+print([] is None)
 ## Extra Challenge: Median of Three Implementation
